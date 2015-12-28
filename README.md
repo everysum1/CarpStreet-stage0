@@ -35,18 +35,19 @@ Creating and deploying to Heroku the most barebone React app.
 
 ## Deploying to Heroku
 
+- Setting Heroku Env variables
+    **heroku config:set NODE_ENV=production**
 
-### Setting Heroku Env variables
-**heroku config:set NODE_ENV=production**
+- Add package.json:
+    - a *postinstall* script to run webpack to produce bundle.js on the Heroku machine 
 
-
-### What don't need to be / shouldn't be deployed:
-- node_modules:
-    Since Heroku may have a different environment from our local machine, package.json will tell heroku which modules are required.
-- public/bundle.js:
-    This file is huge and will be created on the Heroku end, instructed by the *script* section in *package.json*.
-- webpack-dev.config.js:
-    For the obvious reason that the production environment doesn't care about dev configs.
+- What don't need to be / shouldn't be deployed:
+    - node_modules:
+        Since Heroku may have a different environment from our local machine, package.json will tell heroku which modules are required.
+    - public/bundle.js:
+        This file is huge and will be created on the Heroku end, instructed by the *script* section in *package.json*.
+    - webpack-dev.config.js:
+        For the obvious reason that the production environment doesn't care about dev configs.
 
 
 ## Gotchas

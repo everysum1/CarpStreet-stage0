@@ -1,4 +1,9 @@
 {
+  "scripts": {
+    "postinstall": "webpack --config ./webpack-prod.config.js --progress --colors",
+    "start": "node server.js"
+  },
+
   "dependencies": {
     "babel": "^5.8.20",
     "babel-core": "^6.3.26",
