@@ -5,4 +5,7 @@
 var React = require('react');
 var App = require('./components/app.jsx');
 
+// to compile styles
+var Styles = require('../css/app.scss');
+
 React.render(App, document.body);
