@@ -11,12 +11,12 @@ Creating and deploying to Heroku the most barebone React app.
     - Run **"sudo npm install webpack-dev-server -g"** so that we'll be able to run "webpack-dev-server..." from the command line.  
 
 1. State which modules are needed
-    - Create *package.json*, which states which libaries are required by the app.
-    - Fill it with the most basic libaries: react, babel, babel-loader, webpack. 
+    - Create *package.json*, which states which libraries are required by the app.
+    - Fill it with the most basic libraries: react, babel, babel-loader, webpack. 
 
 2. Write an entry point JS/JSX file
-    - Create a file that "kicks off" the application. *src/entry.js* here.
-    - In *entry.js*, require react.
+    - Create a file that "kicks off" the application. *src/entry.jsx* here.
+    - In *entry.jsx*, require react.
 
 3. Kick off the auto-build process (Webpack here).
     Because our react code live in multiple JS/JSX files, they need to be bundled/compiled/built into a single JS file before it can be used. It's a good idea to kick off an automatic build process before writing actual code, so that we know as soon as something breaks.
