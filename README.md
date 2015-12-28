@@ -16,7 +16,7 @@ Creating and deploying to Heroku the most barebone React app.
 
 2. Write an entry point JS/JSX file
     - Create a file that "kicks off" the application. *src/entry.jsx* here.
-    - In *entry.jsx*, require react.
+    - In *entry.jsx*, require react, render "hello world" (see sample).
 
 3. Kick off the auto-build process (Webpack here).
     Because our react code live in multiple JS/JSX files, they need to be bundled/compiled/built into a single JS file before it can be used. It's a good idea to kick off an automatic build process before writing actual code, so that we know as soon as something breaks.
@@ -24,21 +24,30 @@ Creating and deploying to Heroku the most barebone React app.
     - A config file is needed to instruct Webpack on how to actually build our application. It's like a makefile in the C/C++ world.
     - Create *webpack-dev.config.js* (for dev) and *webpack-prod.config.js* (for prod) here. See samples.
     - point the output to *bundle.js*.
-    - Run **"webpack-dev-server --config ./webpack-dev.config.js --progress --colors"** for continuous auto-build.
-    - Errors, if any, will be printed out fully at *http://localhost:8080/webpack-dev-server/*. 
+    - Run **"webpack-dev-server --config ./webpack-dev.config.js --port <portnumber> --inline"** for continuous auto-build and auto browser-refresh.
+    - Go to *http://localhost:<portnumber>/public* to see the webpage. Error, if any, will be shown in full there.  
 
 4. Create index.html that has a script tag pointing to the *bundle.js* file that was created in the previous step 
 
-Actually have "Hello, JJ." show up on the webpage.
+5. Get scss styles to work
+    - create *css/app.scss*
+    - require it in entry.jsx
 
 ## Deploying to Heroku
+
 
 ### Setting Heroku Env variables
 **heroku config:set NODE_ENV=production**
 
-### What don't need to be / shouldn't be deployed:
-- node_modules
-    Since Heroku may have a different environment from our local machine, package.json will tell heroku which modules are required.
-- public/bundle.js
-    This file is huge and will be created on the Heroku end, instructed by the *script* section in *package.json*.
 
+### What don't need to be / shouldn't be deployed:
+- node_modules:
+    Since Heroku may have a different environment from our local machine, package.json will tell heroku which modules are required.
+- public/bundle.js:
+    This file is huge and will be created on the Heroku end, instructed by the *script* section in *package.json*.
+- webpack-dev.config.js:
+    For the obvious reason that the production environment doesn't care about dev configs.
+
+
+## Gotchas
+- webpack-dev-server does NOT change bundle.js. Instead, it serves from cached memory. Run *webpack* instead if you need it changed.

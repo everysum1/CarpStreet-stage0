@@ -13,19 +13,19 @@ app.use(express.static(static_path))
         })
     }).listen(process.env.PORT || 8080, function(err) {
     if (err) { console.log(err); }
-    console.log('JJ\'s server is listening at localhost:' + process.env.PORT || 8080);
+    console.log('JJ\'s server is listening at localhost:' + (process.env.PORT || 8080));
 });
 
-if (isDevelopment) {
-
-    var config = require('./webpack-dev.config');
-    var WebpackDevServer = require('webpack-dev-server');
-
-    new WebpackDevServer(webpack(config), {
-        publicPath: config.output.publicPath,
-        hot: true
-    }).listen(3000, 'localhost', function (err, result) {
-        if (err) { console.log(err); }
-        console.log('JJ\'s server is listening at localhost:3000');
-    });
-}
+//if (isDevelopment) {
+//
+//    var config = require('./webpack-dev.config');
+//    var WebpackDevServer = require('webpack-dev-server');
+//
+//    new WebpackDevServer(webpack(config), {
+//        publicPath: config.output.publicPath,
+//        hot: true
+//    }).listen(3000, 'localhost', function (err, result) {
+//        if (err) { console.log(err); }
+//        console.log('JJ\'s webpack-dev-server is listening at localhost:3000');
+//    });
+//}
