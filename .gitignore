@@ -1,0 +1,8 @@
+# WebStorm IDE stuff
+.idea/
+
+# node_modules
+node_modules/
+
+# created bundle
+public/bundle.js
