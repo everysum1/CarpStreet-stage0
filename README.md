@@ -35,20 +35,33 @@ Creating and deploying to Heroku the most barebone React app.
 
 ## Deploying to Heroku
 
-- Setting Heroku Env variables
+1. Setting Heroku Env variables
     **heroku config:set NODE_ENV=production**
 
-- Add package.json:
-    - a *postinstall* script to run webpack to produce bundle.js on the Heroku machine 
+2. Create a server.js file to serve index.html.
+    - We use express server here. But really anything that serves index.html would work fine (python, ruby, etc.).
 
-- What don't need to be / shouldn't be deployed:
-    - node_modules:
-        Since Heroku may have a different environment from our local machine, package.json will tell heroku which modules are required.
-    - public/bundle.js:
-        This file is huge and will be created on the Heroku end, instructed by the *script* section in *package.json*.
-    - webpack-dev.config.js:
-        For the obvious reason that the production environment doesn't care about dev configs.
+3. Add to package.json a *postinstall* script that:
+    - runs webpack to produce bundle.js on the Heroku machine
+    - starts the express server ("node server.js" is assumed by Heroku if this line in package.json were missing.) 
 
+
+### What don't need to be / shouldn't be deployed:
+- node_modules:
+    Since Heroku may have a different environment from our local machine, package.json will tell heroku which modules are required.
+- public/bundle.js:
+    This file is huge and will be created on the Heroku end, instructed by the *script* section in *package.json*.
+- webpack-dev.config.js:
+    For the obvious reason that the production environment doesn't care about dev configs.
+
+### Quick debugging/diagnosis of Heroku
+A few tools that are really quick and useful for checking out what's going on on the heroku side:
+
+- **heroku logs --tail**:
+    - shows heroku logs
+
+- **heroku bash**:
+    - lets you access the heroku bash shell, where you can see files, run commands, etc.
 
 ## Gotchas
 - webpack-dev-server does NOT change bundle.js. Instead, it serves from cached memory. Run *webpack* instead if you need it changed.
