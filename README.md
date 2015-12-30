@@ -1,7 +1,15 @@
 # MAKING A REACT WEB APP BOILERPLATE
 
+### This is used to build [CarpStreet](http://www.carpstreet.com/#!How-to-Build-CarpStreet-Step-0-Deploying-a-Barebone-Reactjs-Express-Webpack-Website-to-Heroku/crbdq/56827cbb0cf21caddb9a2560), where the full tutorial is.
+
 ## Goal
 Creating and deploying to Heroku the most barebone React app.
+
+## Pre-requisites
+- Basic understanding of JS and HTML
+- Installed the Heroku Toolbelt and npm.
+- A conceptual understanding of Reactjs and JSX files -- which is basically typing HTML into JavaScript, which gets translated into pure HTML to be understood by the browser.
+
 
 ## Steps to creating the app:
 
