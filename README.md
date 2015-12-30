@@ -65,3 +65,5 @@ A few tools that are really quick and useful for checking out what's going on on
 
 ## Gotchas
 - webpack-dev-server does NOT change bundle.js. Instead, it serves from cached memory. Run *webpack* instead if you need it changed.
+
+Reference(s): http://ditrospecta.com/javascript/react/es6/webpack/heroku/2015/08/08/deploying-react-webpack-heroku.html
